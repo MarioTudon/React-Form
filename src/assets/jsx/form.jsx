@@ -1,12 +1,56 @@
-import React from "react";
-import {createRoot} from 'react-dom/client';
+import React, { useEffect, useState } from "react";
+import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.getElementById('root'));
 
-const HolaMundo = ()=>{
-    return(
-        <div>Segunda prueba</div>
+const Form = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const updateName = (e) => {
+        setName(e.target.value);
+    };
+
+    useEffect(() => {
+        console.log(name)
+    }, [name]);
+
+    const updateEmail = (e) => {
+        setEmail(e.target.value);
+        console.log(email);
+    };
+
+    const updateMessage = (e) => {
+        setMessage(e.target.value);
+        console.log(setEmail);
+    };
+
+    const sendButton = (e) => {
+        e.preventDefault();
+        alert(`The following information was sent\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    };
+
+    return (
+        <>
+            <form action="">
+                <h2>Form</h2>
+                <div className="input">
+                    <label htmlFor="name"> Name: </label>
+                    <input type="text" name="name" id="name" onChange={updateName} />
+                </div>
+                <div className="input">
+                    <label htmlFor="email"> Email: </label>
+                    <input type="email" name="email" id="email" onChange={updateEmail} />
+                </div>
+                <div className="input">
+                    <label htmlFor="message"> Message: </label>
+                    <textarea name="message" id="message" onChange={updateMessage}></textarea>
+                </div>
+                <button type="submit" onClick={sendButton}>Send</button>
+            </form>
+        </>
     );
 };
 
-root.render(<HolaMundo />);
+root.render(<Form />);
