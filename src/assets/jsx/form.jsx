@@ -5,7 +5,7 @@ const root = createRoot(document.getElementById('root'));
 
 const HolaMundo = ()=>{
     return(
-        <div>Mi primer deploy</div>
+        <div>Segunda prueba</div>
     );
 };
 
