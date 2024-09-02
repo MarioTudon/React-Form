@@ -12,18 +12,11 @@ const Form = () => {
         setName(e.target.value);
     };
 
-    useEffect(() => {
-        console.log(name)
-    }, [name]);
-
     const updateEmail = (e) => {
         setEmail(e.target.value);
-        console.log(email);
     };
-
     const updateMessage = (e) => {
         setMessage(e.target.value);
-        console.log(setEmail);
     };
 
     const sendButton = (e) => {
@@ -36,16 +29,16 @@ const Form = () => {
             <form action="">
                 <h2>Form</h2>
                 <div className="input">
-                    <label htmlFor="name"> Name: </label>
+                    <label htmlFor="name"> Name </label>
                     <input type="text" name="name" id="name" onChange={updateName} />
                 </div>
                 <div className="input">
-                    <label htmlFor="email"> Email: </label>
+                    <label htmlFor="email"> Email </label>
                     <input type="email" name="email" id="email" onChange={updateEmail} />
                 </div>
                 <div className="input">
-                    <label htmlFor="message"> Message: </label>
-                    <textarea name="message" id="message" onChange={updateMessage}></textarea>
+                    <label htmlFor="message"> Message </label>
+                    <textarea name="message" id="message" onChange={updateMessage} rows={1} maxLength={20}></textarea>
                 </div>
                 <button type="submit" onClick={sendButton}>Send</button>
             </form>
